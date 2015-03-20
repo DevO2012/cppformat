@@ -110,7 +110,7 @@ int fmt::BufferedFile::fileno() const {
 
 fmt::File::File(fmt::StringRef path, int oflag) {
   int mode = S_IRUSR | S_IWUSR;
-#if defined(_WIN32) && !defined(__MINGW32__)
+#if FMT_WIN_POSIX
   fd_ = -1;
   FMT_POSIX_CALL(sopen_s(&fd_, path.c_str(), oflag, _SH_DENYNO, mode));
 #else

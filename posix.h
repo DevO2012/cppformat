@@ -45,12 +45,18 @@
 # include "test/posix-test.h"
 #endif
 
+#if defined(_WIN32) && !defined(__MINGW32__)
+# define FMT_WIN_POSIX 1
+#else
+# define FMT_WIN_POSIX 0
+#endif
+
 #ifndef FMT_POSIX
-# if defined(_WIN32) && !defined(__MINGW32__)
+# if FMT_WIN_POSIX
 // Fix warnings about deprecated symbols.
-#  define FMT_POSIX(call) _##call
+#  define FMT_POSIX(name) _##name
 # else
-#  define FMT_POSIX(call) call
+#  define FMT_POSIX(name) name
 # endif
 #endif
 

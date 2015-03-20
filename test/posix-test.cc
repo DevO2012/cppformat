@@ -73,7 +73,7 @@ enum FStatSimulation { NONE, MAX_SIZE, ERROR } fstat_sim;
     } \
   }
 
-#ifndef _WIN32
+#if !FMT_WIN_POSIX
 int test::open(const char *path, int oflag, int mode) {
   EMULATE_EINTR(open, -1);
   return ::open(path, oflag, mode);
