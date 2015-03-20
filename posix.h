@@ -41,14 +41,14 @@
 
 #include "format.h"
 
-#ifdef FMT_INCLUDE_POSIX_TEST
-# include "test/posix-test.h"
-#endif
-
 #if defined(_WIN32) && !defined(__MINGW32__)
 # define FMT_WIN_POSIX 1
 #else
 # define FMT_WIN_POSIX 0
+#endif
+
+#ifdef FMT_INCLUDE_POSIX_TEST
+# include "test/posix-test.h"
 #endif
 
 #ifndef FMT_POSIX
