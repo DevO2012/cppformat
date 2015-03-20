@@ -37,6 +37,12 @@ struct stat;
 # include <windows.h>
 #endif
 
+#if defined(_WIN32) && !defined(__MINGW32__)
+# define FMT_WIN_POSIX 1
+#else
+# define FMT_WIN_POSIX 0
+#endif
+
 namespace test {
 
 #if !FMT_WIN_POSIX
