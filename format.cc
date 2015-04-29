@@ -44,6 +44,8 @@
 # define WIN32_LEAN_AND_MEAN
 # define NOMINMAX
 # include <windows.h>
+# undef  NOMINMAX
+# undef  WIN32_LEAN_AND_MEAN
 #endif
 
 using fmt::internal::Arg;
